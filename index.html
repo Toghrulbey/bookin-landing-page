@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookin.az — Tezliklə</title>
+<meta name="description" content="Bookin.az tezliklə! Azərbaycanın yeni rezervasiya platforması — doğrulanmış obyektlər, birbaşa qiymətlər və hər rezervasiyada keşbek.">
+<meta name="theme-color" content="#0F2137">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2056%2074%22%3E%3Cpath%20fill%3D%22%2314395E%22%20d%3D%22M28%200C12.5%200%200%2012.5%200%2028c0%2021%2028%2046%2028%2046s28-25%2028-46C56%2012.5%2043.5%200%2028%200z%22%2F%3E%3Cpath%20fill%3D%22%23F5A623%22%20transform%3D%22translate(16%2C11)%22%20d%3D%22M12%200c-6%207-11%2011-11%2017a11%2011%200%200%200%2022%200c0-4-2.5-6.5-5-9%200%204-2.5%205-4%205%201.5-5-1-9-2-13z%22%2F%3E%3C%2Fsvg%3E">
+
+<!-- Open Graph — for when the bare domain link is shared -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bookin.az">
+<meta property="og:locale" content="az_AZ">
+<meta property="og:title" content="Bookin.az — Tezliklə">
+<meta property="og:description" content="Azərbaycanın yeni rezervasiya platforması hazırlanır. Doğrulanmış obyektlər, birbaşa qiymətlər və hər rezervasiyada keşbek.">
+
+<!--
+  Bookin.az — müvəqqəti "Tezliklə" domen səhifəsi.
+  Self-contained: bütün stillər inline, ikonlar SVG data URI / <use> ilə.
+  Brend qaydaları: design/reference/bookin-brend-telimati-v2.html
+    - söz-loqoda alov-nöqtə ("bir alov" qaydası — yanında ayrıca pin yoxdur)
+    - tünd fonda: söz-loqo ağ, alov və ".az" kəhrəba
+    - ekranda yalnız bir mərcan CTA
+  Fontlar Manrope/Inter (Google Fonts) — Ə/ə üçün latin-ext daxildir; yüklənməzsə
+  sistem şriftinə keçir.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#14395E; --navy-deep:#0F2137; --amber:#F5A623; --coral:#F26B4E;
+    --coral-lift:#FF8163; --teal:#12A5A0; --paper:#F7F8FA; --ink:#1C2733;
+    --line:#E3E7ED;
+    /* tünd səthdə mətn iyerarxiyası (app-ın dark tokenləri ilə uyğun) */
+    --on-dark-hi:#F2F5F8; --on-dark-sub:#B9C6D6; --on-dark-mut:#9DB0C4; --on-dark-faint:#6B7A8D;
+    --display:'Manrope',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+    --body:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  body{
+    font-family:var(--body);
+    color:var(--on-dark-mut);
+    background:var(--navy-deep);
+    /* alovun istisi: kəhrəba + mərcan işıqlanması */
+    background-image:
+      radial-gradient(1100px 620px at 50% 26%, rgba(245,166,35,.13), transparent 62%),
+      radial-gradient(900px 560px at 50% 96%, rgba(242,107,78,.10), transparent 60%);
+    background-attachment:fixed;
+    min-height:100dvh;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    line-height:1.65;
+  }
+
+  .page{
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:48px 20px 28px;
+    gap:0;
+  }
+
+  .stack{
+    max-width:640px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  /* ---------- söz-loqo (alov-nöqtə ilə) ---------- */
+  .wm{
+    font-family:var(--display);
+    font-weight:800;
+    line-height:1;
+    letter-spacing:-.015em;
+    white-space:nowrap;
+    display:inline-block;
+    color:#fff;
+    font-size:clamp(34px,6.5vw,54px);
+  }
+  .wm .ii{position:relative;display:inline-block;line-height:1}
+  .wm .ii svg{
+    position:absolute;left:50%;transform:translateX(-50%);
+    bottom:.74em;width:.30em;height:.40em;display:block;
+    color:var(--amber);
+    filter:drop-shadow(0 0 10px rgba(245,166,35,.55));
+  }
+  .wm .az{font-size:.55em;color:var(--amber)}
+
+  /* ---------- eyebrow chip ---------- */
+  .eyebrow{
+    margin-top:34px;
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    padding:7px 15px;border-radius:999px;
+    color:var(--on-dark-sub);
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.03);
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(18,165,160,.18)}
+
+  /* ---------- əsas başlıq ---------- */
+  h1{
+    font-family:var(--display);
+    font-weight:800;
+    color:#fff;
+    letter-spacing:-.02em;
+    line-height:1.02;
+    font-size:clamp(52px,12vw,104px);
+    margin-top:20px;
+  }
+
+  .lead{
+    font-family:var(--display);
+    font-weight:700;
+    color:var(--on-dark-sub);
+    font-size:clamp(18px,3.1vw,24px);
+    line-height:1.35;
+    margin-top:18px;
+    max-width:22ch;
+  }
+
+  .desc{
+    font-family:var(--body);
+    font-weight:400;
+    color:var(--on-dark-mut);
+    font-size:clamp(15px,2.2vw,17px);
+    margin-top:14px;
+    max-width:52ch;
+  }
+
+  /* ---------- xüsusiyyət çipləri ---------- */
+  .feats{
+    margin-top:28px;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+  }
+  .feat{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:500;
+    padding:8px 15px;border-radius:999px;
+    color:var(--on-dark-sub);
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.035);
+  }
+  /* keşbek çipi — kəhrəba bonus vurğusu + alov (brend "bonus-pill") */
+  .feat.bonus{
+    color:#FFD98A;
+    border-color:rgba(245,166,35,.45);
+    background:rgba(245,166,35,.14);
+  }
+  .feat.bonus svg{width:12px;height:15px;color:var(--amber);flex:none}
+
+  /* ---------- CTA (ekranın yeganə mərcan düyməsi) ---------- */
+  .cta{
+    margin-top:34px;
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--body);font-weight:600;font-size:15.5px;
+    text-decoration:none;
+    color:#2A1108;                 /* tünd fonda AA üçün mərcan qaldırılır, mətn tünd */
+    background:var(--coral-lift);
+    padding:13px 26px;border-radius:999px;
+    box-shadow:0 8px 24px rgba(255,129,99,.28);
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .cta:hover{background:#FF9578;transform:translateY(-1px);box-shadow:0 12px 30px rgba(255,129,99,.36)}
+  .cta:active{transform:translateY(0)}
+  .cta svg{width:16px;height:16px;flex:none}
+
+  /* ---------- footer ---------- */
+  .foot{
+    margin-top:52px;
+    font-size:13px;color:var(--on-dark-faint);
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;
+  }
+  .foot .sep{opacity:.5}
+
+  /* ---------- fokus / erişilebilirlik ---------- */
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+  /* ---------- animasiya (hərəkət azaldılmayıbsa) ---------- */
+  @media (prefers-reduced-motion:no-preference){
+    .wm .ii svg{
+      transform-origin:50% 100%;
+      animation:flick 2.6s ease-in-out infinite;
+    }
+    @keyframes flick{
+      0%,100%{transform:translateX(-50%) scaleY(1)}
+      50%{transform:translateX(-50%) scaleY(1.09)}
+    }
+    .stack > *{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+    .eyebrow{animation-delay:.05s}
+    h1{animation-delay:.10s}
+    .lead{animation-delay:.16s}
+    .desc{animation-delay:.22s}
+    .feats{animation-delay:.28s}
+    .cta{animation-delay:.34s}
+    @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  }
+
+  @media (max-width:400px){
+    .page{padding:36px 16px 22px}
+    .eyebrow{margin-top:26px}
+  }
+</style>
+</head>
+<body>
+
+<!-- SVG simvol: alov (söz-loqo nöqtəsi + bonus çipi üçün) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="flame" viewBox="0 0 24 30">
+      <path fill="currentColor" d="M12 0c-6 7-11 11-11 17a11 11 0 0 0 22 0c0-4-2.5-6.5-5-9 0 4-2.5 5-4 5 1.5-5-1-9-2-13z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="page">
+  <div class="stack">
+
+    <span class="wm" role="img" aria-label="Bookin.az loqosu">Book<span class="ii">ı<svg viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#flame"/></svg></span>n<span class="az">.az</span></span>
+
+    <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Azərbaycan üzrə hotellər</span>
+
+    <h1>Tezliklə</h1>
+
+    <p class="lead">Azərbaycanın yeni rezervasiya platforması hazırlanır.</p>
+
+    <p class="desc">Doğrulanmış otellər və mənzillər, birbaşa qiymətlər və hər rezervasiyada keşbek — hamısı bir yerdə. Çox yaxında xidmətinizdəyik.</p>
+
+    <div class="feats">
+      <span class="feat">Doğrulanmış obyektlər</span>
+      <span class="feat">Birbaşa qiymətlər</span>
+      <span class="feat bonus"><svg viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#flame"/></svg>Hər rezervasiyada keşbek</span>
+    </div>
+
+    <!-- Ekranın yeganə mərcan CTA-sı. TODO: əlaqə ünvanını real qutu ilə əvəz edin. -->
+    <a class="cta" href="mailto:info@bookin.az">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="m3 7 9 6 9-6"/></svg>
+      Bizimlə əlaqə
+    </a>
+
+    <div class="foot">
+      <span>© 2026 Bookin.az</span>
+      <span class="sep" aria-hidden="true">·</span>
+      <span>Bütün hüquqlar qorunur.</span>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
