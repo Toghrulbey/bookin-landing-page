@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookin.az</title>
+<meta name="description" content="Biz gəlirik.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#0F2137; --amber:#F5A623; --teal:#12A5A0;
+  --display:'Manrope',sans-serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--navy-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:40px 24px;text-align:center;
+}
+
+.wm{font-family:var(--display);font-weight:800;line-height:1;letter-spacing:-.015em;white-space:nowrap;display:inline-block;font-size:clamp(46px,10vw,76px)}
+.wm .ii{position:relative;display:inline-block;line-height:1}
+.wm .ii svg{position:absolute;left:50%;transform:translateX(-50%);bottom:.74em;width:.30em;height:.40em;display:block}
+.wm .az{font-size:.55em;color:var(--amber)}
+@media (prefers-reduced-motion:no-preference){
+  .wm .ii svg{animation:flick 2.8s ease-in-out infinite;transform-origin:50% 100%}
+  @keyframes flick{0%,100%{transform:translateX(-50%) scaleY(1)}50%{transform:translateX(-50%) scaleY(1.09)}}
+}
+
+.line{
+  margin-top:26px;font-family:var(--mono);font-size:13px;
+  letter-spacing:.28em;color:var(--amber);text-transform:uppercase;
+}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><symbol id="flame" viewBox="0 0 24 30"><path fill="currentColor" d="M12 0c-6 7-11 11-11 17a11 11 0 0 0 22 0c0-4-2.5-6.5-5-9 0 4-2.5 5-4 5 1.5-5-1-9-2-13z"/></symbol></defs>
+</svg>
+
+<div>
+  <span class="wm" role="img" aria-label="Bookin.az">Book<span class="ii">ı<svg viewBox="0 0 24 30" style="color:#F5A623" aria-hidden="true"><use href="#flame"/></svg></span>n<span class="az">.az</span></span>
+  <p class="line">Biz gəlirik</p>
+</div>
+
+</body>
+</html>
